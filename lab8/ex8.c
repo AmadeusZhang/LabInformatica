@@ -1,2 +1,0 @@
-/* distanza euclidea nel piano */
-
