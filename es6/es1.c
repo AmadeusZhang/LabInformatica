@@ -28,7 +28,7 @@ pnodo InitList( pnodo *pHead ) {
 }
 
 // insert values into the list
-void InsertList ( pnodo pHead, int val ) {
+pnodo InsertList ( pnodo pHead, int val ) {
     pnodo pInS, pMove;
     pMove = pHead;
     pInS = ( pnodo ) malloc( sizeof( struct node ) );
@@ -38,10 +38,18 @@ void InsertList ( pnodo pHead, int val ) {
     pInS -> info = val;
     pInS -> next = NULL;
 
-    while ( pMove -> next != NULL )
-        pMove = pMove -> next;
+    if ( pHead != NULL ) {
+    	while ( pMove -> next != NULL ){
+        	pMove = pMove -> next;
+    	}
+
+    	pMove -> next = pInS;
+    }
     
-    pMove -> next = pInS;
+    else
+    	pHead = pInS;
+
+    return pHead;
 }
 
 // print the list
@@ -68,9 +76,9 @@ int sumList ( pnodo p ) {
 }
 
 int main (void) {
-    pnodo ptr;
+    pnodo ptr = NULL;
 
-    ptr = InitList( &ptr );
+    //ptr = InitList( &ptr );
 
     // declare an array to store input values
     int num[LEN], i;
@@ -84,9 +92,9 @@ int main (void) {
 
     // insert into list
     for ( i = 0; i <= LEN; ++i )
-        InsertList( ptr, num[i]);
+        ptr=InsertList( ptr, num[i]);
 
-    printList(ptr);
+    printList( ptr );
 
     printf("somma totale: %d\n", sumList( ptr ));
 
