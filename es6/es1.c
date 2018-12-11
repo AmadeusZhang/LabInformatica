@@ -92,7 +92,7 @@ int main (void) {
 
     // insert into list
     for ( i = 0; i <= LEN; ++i )
-        ptr=InsertList( ptr, num[i]);
+        ptr = InsertList( ptr, num[i]);
 
     printList( ptr );
 
