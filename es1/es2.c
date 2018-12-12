@@ -3,34 +3,33 @@
  * Date:        12-dec-2018
  */
 
- #include <stdio.h>
+#include <stdio.h>
+#include <stdlib.h>
 
- int max( int, int );
+int max( int, int );
 
- int main(void) {
-     int num1, num2;
-     num1 = num2 = 0;
+int main(void) {
+    int num, nom;
+    num = nom = 0;
 
-     while ( num1 <= 0 || num2 <= 0 ) {
-         printf("Inserisci 2 numeri positivi:\n");
-         scanf("%d %d", &num1, &num2);
-     }
+    while ( num <= 0 || nom <= 0 ) {
+        printf("Inserisci due numeri naturali:\n");
+        scanf("%d %d", &num, &nom);
+    }
 
-     putchar(33);
+    for ( int i = 1; i < max( num, nom); ++i ) {
+        if ( (num % i == 0) && (nom % i == 0) )
+            printf("%d\t", i);
+    }
 
-     for ( int i = 0; i < max(num1, num2); ++i ) {
-        if ( (num1 % i == 0) && (num2 % i == 0) )
-            printf("%d", i);
-        
-        else
-            ;
-     }
- }
+    putc(10, stdout);
+    return 0;
+}
 
- int max( int a, int b ) {
-     if (a > b)
+int max( int a, int b ) {
+    if (a > b)
         return a;
     
-     else
+    else
         return b;
- }
+}
