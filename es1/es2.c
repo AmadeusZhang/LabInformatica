@@ -1,36 +1,36 @@
-#include <stdio.h>
+/* Divisori comuni
+ * Author:      AmadeusZhang
+ * Date:        12-dec-2018
+ */
 
-int main(void) {
-	// dichiaro 3 interi
-	int a, b, c;
+ #include <stdio.h>
 
-	// typein values
-	printf("Inserisci 3 interi positivi:\n");
-	scanf("%d %d %d", &a, &b, &c);
+ int max( int, int );
 
-	while ( a < 0 || b < 0 || c < 0 ) {
-		printf("Numero non accettabile\n");
-		return -1;
-	}
-	
-	// chiedo per tutti 3 numeri
-	if ( (a^2) == ( (b^2) + (c^2) ) ) {
-		printf("%d %d %d sono una terna pitagorica\n", a, b, c);
-		return 1;
-	}
+ int main(void) {
+     int num1, num2;
+     num1 = num2 = 0;
 
-	else if ( (b^2) == ( (a^2) + (c^2) ) ) {
-		printf("%d %d %d sono una terna pitagorica\n", a, b, c);
-		return 1;
-	}
+     while ( num1 <= 0 || num2 <= 0 ) {
+         printf("Inserisci 2 numeri positivi:\n");
+         scanf("%d %d", &num1, &num2);
+     }
 
-	else if ( (c^2) == ( (a^2) + (b^2) ) ) {
-		printf("%d %d %d sono una terna pitagorica\n", a, b, c);
-		return 1;
-	}
+     putchar(33);
 
-	else {
-		printf("%d %d %d non sono una terna pitagorica\n", a, b, c);
-		return -1;
-	}
-}
+     for ( int i = 0; i < max(num1, num2); ++i ) {
+        if ( (num1 % i == 0) && (num2 % i == 0) )
+            printf("%d", i);
+        
+        else
+            ;
+     }
+ }
+
+ int max( int a, int b ) {
+     if (a > b)
+        return a;
+    
+     else
+        return b;
+ }
