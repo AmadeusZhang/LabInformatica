@@ -9,6 +9,7 @@
 #include <stdlib.h>
 
 int reverse(int * str, int len);
+void printReverse(char *);
 
 int main(int argc, char const *argv[]) {
     // input di stringhe limitato da N
@@ -37,6 +38,11 @@ int main(int argc, char const *argv[]) {
         printf("%ls", str);
 
     printf("\n");
+
+    char test[] = "Hello";
+    printReverse(test);
+    printf("\n");
+
     return 0;
 }
 
@@ -58,4 +64,12 @@ int reverse(int * str, int l) {
         str[i] = aux[l-i-1];
 
     return 0;
+}
+
+void printReverse(char * str) {
+    if ( !(*str) )
+        return ;
+    
+    printReverse(str+1);
+    printf("%c", *str);
 }
