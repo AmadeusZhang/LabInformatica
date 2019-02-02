@@ -1,8 +1,3 @@
-/* 
- * Author: AmadeusZhang
- * Date:   28-nov-18
- */
-
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -39,9 +34,8 @@ pnodo InsertList ( pnodo pHead, int val ) {
     pInS -> next = NULL;
 
     if ( pHead != NULL ) {
-    	while ( pMove -> next != NULL ){
-        	pMove = pMove -> next;
-    	}
+    	while ( pMove -> next != NULL )
+        	   pMove = pMove -> next;
 
     	pMove -> next = pInS;
     }
