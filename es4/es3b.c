@@ -1,8 +1,4 @@
-/*
- * Gioco del 15
- * Author:      AmadeusZhang
- * Date:        18-december-2018
- */
+// Gioco del 15
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -15,13 +11,14 @@ int risolto ( int gioco[][LEN] );
 void stampa ( int gioco[][LEN] );
 
 int main (int argc, char const *argv[]) {
-    // impostazione della scacchiera
-    int gioco[LEN][LEN] = { {8, 5, 2, 4}, {11, 1, 0, 7}, {12, 10, 3, 15}, {9, 13, 14, 6} };
+    int gioco[LEN][LEN] = { 
+        {8, 5, 2, 4}, {11, 1, 0, 7},
+        {12, 10, 3, 15}, {9, 13, 14, 6}
+    };
+
     stampa(gioco);
 
-    // manovrazione
     int mossa = 0;
-
     while ( !risolto(gioco) ) {
         do {
             fputs("Inserisci la mossa:\n", stdout);
@@ -40,7 +37,12 @@ int valida ( int g[][LEN], int m ) {
     for ( int i = 0; i < LEN; ++i )
         for ( int j = 0; j < LEN; ++j )    
             if ( g[i][j] == m ) {
-                if ( (i-1 >= 0 && g[i-1][j] == 0) || (i+1 < LEN && g[i+1][j] == 0) || (j-1 >= 0 && g[i][j-1] == 0) || (j+1 < LEN && g[i][j+1] == 0) )
+                if ( 
+                    (i-1 >= 0 && g[i-1][j] == 0)  ||
+                    (i+1 < LEN && g[i+1][j] == 0) ||
+                    (j-1 >= 0 && g[i][j-1] == 0)  ||
+                    (j+1 < LEN && g[i][j+1] == 0)
+                )
                     return 1;
                 
                 else
