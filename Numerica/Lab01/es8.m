@@ -9,6 +9,7 @@ T1=[
 7
 8
 ];
+
 T2=[
 0.00
 0.06
@@ -19,6 +20,7 @@ T2=[
 0.60
 0.70
 ];
+
 T3=[
 0.00
 0.08
@@ -29,3 +31,11 @@ T3=[
 0.28
 0.29
 ];
+
+figure();
+plot(T2, T3)
+
+% inserisco titolo e nome degli assi
+title('Grafico Sforzo-Deformazione')
+xlabel('Sforzo \sigma')
+ylabel('Deformazione \epsilon')
